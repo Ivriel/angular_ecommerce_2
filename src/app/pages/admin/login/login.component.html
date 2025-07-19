@@ -1,0 +1,26 @@
+<div class="parent">
+
+
+
+<div class="login-box">
+    <h2>Login</h2>
+    <form action="" class="form">
+      <div class="user-box">
+        <input class="input" name="username" [(ngModel)]="loginObj.userName" type="text" id="name" required="" placeholder="username">
+      </div>
+      <!-- /.user-box -->
+      <div class="user-box">
+        <input class="input" name="password" [(ngModel)]="loginObj.password" type="password" id="password" required="" placeholder="password">
+      </div>
+      <!-- /.user-box -->
+      <button type="button" (click)="onLogin()">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Submit
+      </button>
+    </form>
+    <!-- /form -->
+  </div>
+</div>

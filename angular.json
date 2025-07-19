@@ -27,6 +27,8 @@
               }
             ],
             "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/@fortawesome/fontawesome-free/css/all.min.css",
               "src/styles.css"
             ],
             "scripts": [],
@@ -67,7 +69,8 @@
               "buildTarget": "angular-ecommerce-2:build:production"
             },
             "development": {
-              "buildTarget": "angular-ecommerce-2:build:development"
+              "buildTarget": "angular-ecommerce-2:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
@@ -90,6 +93,8 @@
               }
             ],
             "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/@fortawesome/fontawesome-free/css/all.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -97,5 +102,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "53903220-f426-4c15-82b4-ffdfa0c8705a"
   }
 }
