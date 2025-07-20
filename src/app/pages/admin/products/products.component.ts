@@ -12,6 +12,7 @@ import { ProductService } from '../../../services/product/product.service';
 export class ProductsComponent implements OnInit {
 
   constructor(private productService:ProductService){}
+  isLoading:boolean = true
   
   CategoryList:any[] = []
   isSidePanelVisible:boolean = false;
@@ -37,13 +38,22 @@ export class ProductsComponent implements OnInit {
   getAllCategory(){
     this.productService.getCategory().subscribe((res:any)=> {
       this.CategoryList = res.data
+      this.checkLoadingComplete()
     })
   }
 
   getProducts(){
     this.productService.getProducts().subscribe((res:any)=> {
       this.productList = res.data
+      this.checkLoadingComplete()
     })
+  }
+
+  private checkLoadingComplete() {
+    // Set loading to false only when both products and categories are loaded
+    if (this.productList.length > 0 || this.CategoryList.length > 0) {
+      this.isLoading = false
+    }
   }
 
   onSave(){

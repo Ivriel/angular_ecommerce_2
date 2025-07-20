@@ -15,7 +15,16 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <div class="row">
+                    <!-- Loading indicator -->
+                    <div class="text-center" *ngIf="isLoading">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <p class="mt-2">Loading products...</p>
+                    </div>
+                    
+                    <!-- Product list -->
+                    <div class="row" *ngIf="!isLoading">
                         <div class="col-3 mb-4" *ngFor="let product of productList">
                             <div class="card">
                                 <img [src]="product.productImageUrl" [alt]="product.productName" class="card-img-top" width="300" height="200"/>
@@ -34,6 +43,7 @@
     </div>
 
     <div class="col-4" *ngIf="isSidePanelVisible">
+        <span class="text-center fw-bold text-danger" *ngIf="isLoading">Loading...</span>
         <div class="card">
             <div class="card-header">
                 <div class="card-header bg-primary">
@@ -64,8 +74,8 @@
                             <input type="text" name="Price" id="Price" class="form-control"  [(ngModel)]="productObj.productPrice">
                         </div>
                         <div class="col-6">
-                            <label for="shortName">shortName</label>
-                            <input type="text" name="shortName" id="shortName" class="form-control"  [(ngModel)]="productObj.shortName">
+                            <label for="shortName">Short Name</label>
+                            <input type="text" name="shortName" id="shortName" class="form-control"  [(ngModel)]="productObj.productShortName">
                         </div>
                         <div class="col-6">
                             <label for="Description">Description</label>

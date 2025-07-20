@@ -10,6 +10,7 @@ import { ProductService } from '../../../services/product/product.service';
 })
 export class WebProductsComponent implements OnInit{
   productList:any[] = []
+  isLoading:boolean = true
   constructor(private productService:ProductService){}
 
   ngOnInit(): void {
@@ -18,6 +19,10 @@ export class WebProductsComponent implements OnInit{
   getAllProducts(){
     this.productService.getProducts().subscribe((res:any)=> {
       this.productList = res.data
+      if(this.productList.length > 0) {
+        this.isLoading = false
+      }
     })
   }
+
 }

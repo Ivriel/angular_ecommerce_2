@@ -11,9 +11,11 @@ import { CommonModule } from '@angular/common';
 export class CategoriesComponent {
   
   products$:Observable<any>
+  isLoading:boolean = true
   constructor(private productService:ProductService){
     this.products$ = this.productService.getCategory().pipe(
       map((item:any)=> {
+        this.isLoading = false  // Set loading false setelah data diterima
         return item.data
       })
     )
