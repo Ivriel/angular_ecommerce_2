@@ -1,1 +1,15 @@
-<p>category-products works!</p>
+<div class="container my-4">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let product of products">
+        <div class="card h-100 d-flex flex-column">
+          <img [src]="product.productImageUrl" [alt]="product.productShortName" class="card-img-top img-fluid" />
+          <div class="card-body d-flex flex-column justify-content-between">
+            <h5 class="card-title">{{ product.productShortName }}</h5>
+            <p class="card-text">{{ product.productPrice }} $</p>
+            <button class="btn btn-success mt-auto">Add to cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

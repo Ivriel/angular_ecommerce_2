@@ -29,4 +29,8 @@ export class ProductService {
   deleteProduct(id:any){
     return this.http.get(Constant.API_END_Point + Constant.METHODS.DELETE_PRODUCT + id)
   }
+
+  getProductByCategoryId(id:any){
+    return this.http.get(Constant.API_END_Point + Constant.METHODS.GET_ALL_PRODUCT_BY_CATEGORY + id)
+  }
 }
